@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialReader", "SerialReader\SerialReader.csproj", "{3243A691-2A06-46B4-969A-1C7328F3E64C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3243A691-2A06-46B4-969A-1C7328F3E64C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3243A691-2A06-46B4-969A-1C7328F3E64C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3243A691-2A06-46B4-969A-1C7328F3E64C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3243A691-2A06-46B4-969A-1C7328F3E64C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C387221-5AAF-40A8-946D-B22F2934A97F}
+	EndGlobalSection
+EndGlobal
