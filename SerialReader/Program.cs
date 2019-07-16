@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace SerialReader
         static SerialPort serialPort = new SerialPort
         {
             BaudRate = 115200,
-            StopBits = StopBits.None,
+            StopBits = StopBits.One,
             Parity=Parity.Even,
             DataBits=8
         };
@@ -25,18 +26,23 @@ namespace SerialReader
             {
                 Console.WriteLine(p);
             }
+            Console.WriteLine("***");
             Console.WriteLine("Enter the number of the desired port");
             string num = Console.ReadLine();
             serialPort.PortName = "COM" + num;
             serialPort.DataReceived += SerialPort_DataReceived;
             serialPort.Open();
+            Console.ReadKey();
 
         }
 
         private static void SerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             SerialPort sp = (SerialPort)sender;
-            sp.
+            string recieveddata = sp.ReadExisting();
+            Console.Write(recieveddata);
+
+            File.AppendAllText("path", recieveddata);
         }
     }
 }
