@@ -10,6 +10,8 @@ namespace SerialReader
 {
     class Program
     {
+        static string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        static string path = Path.Combine(desktopPath, "001.csv");
         static SerialPort serialPort = new SerialPort
         {
             BaudRate = 115200,
@@ -42,7 +44,7 @@ namespace SerialReader
             string recieveddata = sp.ReadExisting();
             Console.Write(recieveddata);
 
-            File.AppendAllText("path", recieveddata);
+            File.AppendAllText(path, recieveddata);
         }
     }
 }
