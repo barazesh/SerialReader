@@ -11,13 +11,11 @@ namespace SerialReader
     class Program
     {
         static string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
         static string path = Path.Combine(desktopPath, "001.csv");
         static SerialPort serialPort = new SerialPort
         {
             BaudRate = 115200,
-            StopBits = StopBits.One,
-            Parity=Parity.Even,
-            DataBits=8
         };
         static void Main(string[] args)
         {
@@ -43,8 +41,22 @@ namespace SerialReader
             SerialPort sp = (SerialPort)sender;
             string recieveddata = sp.ReadExisting();
             Console.Write(recieveddata);
+            StringBuilder sb = new StringBuilder();
+            sb.Append(DateTime.Now.Year.ToString());
+            sb.Append(",");
+            sb.Append(DateTime.Now.Month.ToString());
+            sb.Append(",");
+            sb.Append(DateTime.Now.Day.ToString());
+            sb.Append(",");
+            sb.Append(DateTime.Now.Hour.ToString());
+            sb.Append(",");
+            sb.Append(DateTime.Now.Minute.ToString());
+            sb.Append(",");
+            sb.Append(DateTime.Now.Second.ToString());
+            sb.Append(",");
+            sb.Append(recieveddata);
 
-            File.AppendAllText(path, recieveddata);
+            File.AppendAllText(path, sb.ToString());
         }
     }
 }
