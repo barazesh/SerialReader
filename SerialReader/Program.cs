@@ -55,8 +55,13 @@ namespace SerialReader
             sb.Append(DateTime.Now.Second.ToString());
             sb.Append(",");
             sb.Append(recieveddata);
+            if (recieveddata.EndsWith("\r\n"))
+            {
+                File.AppendAllText(path, sb.ToString());
+                sb.Length = 0;
+            }
 
-            File.AppendAllText(path, sb.ToString());
+            
         }
     }
 }
